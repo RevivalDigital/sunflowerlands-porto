@@ -33,7 +33,7 @@ function parsePrices(raw: any): PriceItem[] {
     }
   }
   if (map.size === 0) ingest(data, 'p2p')
-  return [...map.values()].sort((a, b) => a.name.localeCompare(b.name))
+  return Array.from(map.values()).sort((a, b) => a.name.localeCompare(b.name))
 }
 
 // ── Parse /api/sfl/nfts ───────────────────────────────────────────────────
@@ -534,7 +534,7 @@ export default function WatchlistContent() {
           })
         }
       }
-      setAllItems([...map.values()].sort((a, b) => a.name.localeCompare(b.name)))
+      setAllItems(Array.from(map.values()).sort((a, b) => a.name.localeCompare(b.name)))
       setItemsFetched(true)
     } catch (e) {
       console.warn('fetchAllItems:', e)

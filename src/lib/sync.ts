@@ -189,11 +189,11 @@ async function saveNftMarketPrices(
   nftMap:   Map<string, { supply?: number; price?: number; collection?: string }>
 ): Promise<number> {
   // Merge both maps by NFT name
-  const allNames = new Set([...priceMap.keys(), ...nftMap.keys()])
+  const allNames = new Set([...Array.from(priceMap.keys()), ...Array.from(nftMap.keys())])
   let saved = 0
 
   // Batch in chunks of 20 to avoid overloading PB
-  const names = [...allNames]
+  const names = Array.from(allNames)
   for (let i = 0; i < names.length; i += 20) {
     const chunk = names.slice(i, i + 20)
     await Promise.allSettled(chunk.map(async (name) => {
