@@ -237,6 +237,7 @@ function NftModal({ nft, onClose, onSaved }: {
     avg_cost_usd:       String(nft?.avg_cost_usd || ''),
     floor_price_p2p_sfl:String(nft?.floor_price_p2p_sfl || ''),
     floor_price_seq_sfl:String(nft?.floor_price_seq_sfl || ''),
+    total_supply:       String(nft?.total_supply || ''),
     rarity:             nft?.rarity || 'common',
     status:             nft?.status || 'holding',
     acquired_date:      nft?.acquired_date?.slice(0,10) || format(new Date(), 'yyyy-MM-dd'),
